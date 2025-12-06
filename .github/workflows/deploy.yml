@@ -17,9 +17,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t starlight-dev .
 
-      # Run the container (it executes CMD, i.e., npm run build)
+      # Run the container (CMD del Dockerfile esegue npm run build)
       - name: Build site inside container
-        run: docker run --rm -v $GITHUB_WORKSPACE:/app starlight-dev
+        run: docker run --rm -v $GITHUB_WORKSPACE:/app -v /app/node_modules starlight-dev
 
       # Deploy to GitHub Pages
       - name: Deploy
