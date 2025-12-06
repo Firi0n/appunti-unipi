@@ -15,7 +15,7 @@ export const sidebar: StarlightSidebarTopicsUserConfig = [
 	},
 	{
 		label: "Architetture e sistemi operativi",
-		link: "/aeso/",
+		link: "/aeso/architetture/01_introduzione",
 		id: "aeso",
 		items: [
 			{
