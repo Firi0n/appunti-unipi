@@ -18,22 +18,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: |
-          echo "🔨 Building Docker image..."
-          docker run --rm -u $(id -u):$(id -g) -v $(pwd)/dist:/app/dist -v /app/node_modules starlight-dev || { echo "❌ Astro build failed"; exit 1; }
+          echo "🔨 Building Docker image from your Dockerfile..."
+          docker build -t starlight-dev .
           echo "✅ Docker image built successfully"
 
       - name: Run Astro build inside container
         run: |
-          echo "🏗️ Running Astro build..."
-          docker run --rm -v $(pwd)/dist:/app/dist -v /app/node_modules starlight-dev || { echo "❌ Astro build failed"; exit 1; }
+          echo "🏗️ Running Astro build inside container..."
+          docker run --rm \
+            -v $(pwd)/dist:/app/dist \
+            starlight-dev \
+            npm run build || { echo "❌ Astro build failed"; exit 1; }
           echo "✅ Astro site built successfully"
 
       - name: List built site files
-        run: ls -la ./dist/
+        run: |
+          echo "📁 Built site contents:"
+          ls -la ./dist/
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
@@ -47,5 +53,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4
