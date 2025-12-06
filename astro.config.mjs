@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightSidebarTopics from "starlight-sidebar-topics";
+import { sidebar } from "./sidebar";
 
 import mermaid from "astro-mermaid";
 import d2 from "astro-d2";
@@ -40,16 +42,7 @@ export default defineConfig({
 				minHeadingLevel: 2,
 				maxHeadingLevel: 6,
 			},
-			sidebar: [
-				{
-					label: "Analisi",
-					autogenerate: { directory: "analisi" },
-				},
-				{
-					label: "Ingegneria del Software",
-					autogenerate: { directory: "software_engineering" },
-				},
-			],
+			plugins: [starlightSidebarTopics(sidebar)],
 			head: [
 				{
 					tag: "link",

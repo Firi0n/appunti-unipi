@@ -1,5 +1,7 @@
 ---
 title: Principi di progettazione
+sidebar:
+    order: 4
 ---
 
 ```mermaid

@@ -1,5 +1,7 @@
 ---
 title: Processo software
+sidebar:
+    order: 1
 ---
 
 ```mermaid

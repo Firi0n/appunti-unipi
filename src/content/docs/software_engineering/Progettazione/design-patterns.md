@@ -1,5 +1,7 @@
 ---
 title: Design patterns
+sidebar:
+    order: 5
 ---
 
 ```mermaid

@@ -1,5 +1,7 @@
 ---
 title: Insiemi
+sidebar:
+    order: 1
 ---
 
 # Insiemi numerici:

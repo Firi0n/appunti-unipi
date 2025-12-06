@@ -1,5 +1,7 @@
 ---
 title: Progettazione
+sidebar:
+    order: 3
 ---
 
 ```mermaid
