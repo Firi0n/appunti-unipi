@@ -14,6 +14,28 @@ export const sidebar: StarlightSidebarTopicsUserConfig = [
 		items: [{ label: "Analisi", autogenerate: { directory: "analisi" } }],
 	},
 	{
+		label: "Algebra lineare",
+		link: "/algebra_lineare/01-introduzione",
+		id: "algebra_lineare",
+		items: [
+			{
+				label: "Algebra lineare",
+				autogenerate: { directory: "algebra_lineare" },
+			},
+		],
+	},
+	{
+		label: "Ricerca operativa",
+		link: "/ricerca_operativa/01-introduzione",
+		id: "ricerca_operativa",
+		items: [
+			{
+				label: "Ricerca operativa",
+				autogenerate: { directory: "ricerca_operativa" },
+			},
+		],
+	},
+	{
 		label: "Architetture e sistemi operativi",
 		link: "/aeso/architetture/01_introduzione",
 		id: "aeso",
