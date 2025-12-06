@@ -18,38 +18,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔄 Checkout repository
+      - name: 🔄 Checkout
         uses: actions/checkout@v4
 
       - name: 🔨 Build Docker image
         run: |
-          echo "🚀 Building Docker image with D2 + Astro..."
+          echo "🚀 Building Docker image..."
           docker build -t starlight-dev .
           docker run --rm starlight-dev d2 --version
-          echo "✅ Docker image built successfully"
+          echo "✅ Docker image ready"
 
-      - name: 🏗️ Run Astro build
+      - name: 🏗️ Astro build
         run: |
-          echo "⚙️ Building Astro site with D2 diagrams..."
-          rm -rf dist/  # Pulisci vecchia build
-          docker run --rm \
-            -v $(pwd):/app:rw \
-            starlight-dev \
-            npm run build \
-            || { echo "❌ Astro build failed"; exit 1; }
-          echo "✅ Astro site built successfully"
+          echo "⚙️ Building with npx astro build..."
+          rm -rf dist/
+          docker run --rm -v $(pwd):/app:rw starlight-dev npx astro build
+          echo "✅ Build completed"
 
-      - name: 🔍 Debug config & output
+      - name: 🔍 Verify
         run: |
-          echo "📋 Repository name: ${{ github.event.repository.name }}"
-          echo "📍 Expected base path: /${{ github.event.repository.name }}"
-          echo "📄 astro.config.mjs:"
-          cat astro.config.mjs || echo "❌ astro.config.mjs MISSING!"
-          echo "📁 Built files:"
+          echo "📁 dist/:"
           ls -la dist/
-          echo "📊 Files: $(find dist/ -type f | wc -l)"
+          grep -q 'index.html' dist/ || echo "❌ NO index.html!"
 
-      - name: 📤 Upload GitHub Pages artifact
+      - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -61,6 +53,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 🚀 Deploy to GitHub Pages
+      - name: 🚀 Deploy
         id: deployment
         uses: actions/deploy-pages@v4
