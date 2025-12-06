@@ -11,7 +11,16 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.37.0",
+    "@mermaid-js/layout-elk": "^0.2.0",
     "astro": "^5.6.1",
+    "astro-d2": "^0.8.1",
+    "astro-mermaid": "^1.1.0",
+    "mermaid": "^11.12.2",
+    "rehype-accessible-emojis": "^0.3.2",
+    "rehype-katex": "^7.0.1",
+    "remark-behead": "^3.1.0",
+    "remark-math": "^6.0.0",
+    "remark-toc": "^9.0.0",
     "sharp": "^0.34.2"
   }
 }
