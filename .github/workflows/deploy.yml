@@ -1,29 +1,51 @@
-name: Build and deploy
+name: Deploy Astro to GitHub Pages
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout repository
       - uses: actions/checkout@v4
 
-      # Build Docker image
       - name: Build Docker image
-        run: docker build -t starlight-dev .
+        run: |
+          echo "🔨 Building Docker image..."
+          docker build -t starlight-dev . || { echo "❌ Docker build failed"; exit 1; }
+          echo "✅ Docker image built successfully"
 
-      # Run the container (CMD del Dockerfile esegue npm run build)
-      - name: Build site inside container
-        run: docker run --rm -v $GITHUB_WORKSPACE:/app -v /app/node_modules starlight-dev
+      - name: Run Astro build inside container
+        run: |
+          echo "🏗️ Running Astro build..."
+          docker run --rm -v $(pwd)/dist:/app/dist -v /app/node_modules starlight-dev || { echo "❌ Astro build failed"; exit 1; }
+          echo "✅ Astro site built successfully"
 
-      # Deploy to GitHub Pages
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: List built site files
+        run: ls -la ./dist/
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
