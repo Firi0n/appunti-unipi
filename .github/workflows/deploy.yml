@@ -21,27 +21,22 @@ jobs:
       - name: 🔄 Checkout
         uses: actions/checkout@v4
 
-      - name: 🔨 Build Docker image
+      - name: 🔨 Build Docker
         run: |
-          echo "🚀 Building Docker image..."
           docker build -t starlight-dev .
           docker run --rm starlight-dev d2 --version
-          echo "✅ Docker image ready"
 
-      - name: 🏗️ Astro build
+      - name: 🏗️ Build site
         run: |
-          echo "⚙️ Building with npx astro build..."
           rm -rf dist/
-          docker run --rm -v $(pwd):/app:rw starlight-dev npx astro build
-          echo "✅ Build completed"
+          docker run --rm -v $(pwd):/app:rw starlight-dev sh -c "npm run build"
 
       - name: 🔍 Verify
         run: |
-          echo "📁 dist/:"
           ls -la dist/
-          grep -q 'index.html' dist/ || echo "❌ NO index.html!"
+          test -f dist/index.html && echo "✅ index.html OK" || echo "❌ NO index.html"
 
-      - name: 📤 Upload artifact
+      - name: 📤 Upload
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -49,9 +44,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: github-pages
     steps:
       - name: 🚀 Deploy
         id: deployment
