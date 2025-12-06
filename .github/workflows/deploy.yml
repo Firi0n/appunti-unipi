@@ -18,7 +18,7 @@ jobs:
 
       # Run the build inside the container
       - name: Build site inside container
-        run: docker run --rm -v $GITHUB_WORKSPACE:/app starlight-dev npm run build
+        run: docker run --rm -v $GITHUB_WORKSPACE:/app starlight-dev npx run build
 
       # Deploy to GitHub Pages
       - name: Deploy
