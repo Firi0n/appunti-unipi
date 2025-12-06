@@ -27,25 +27,27 @@ jobs:
           docker build -t starlight-dev .
           docker run --rm starlight-dev d2 --version
           echo "✅ Docker image built successfully"
-        shell: bash
 
       - name: 🏗️ Run Astro build
         run: |
           echo "⚙️ Building Astro site with D2 diagrams..."
-          mkdir -p dist
+          rm -rf dist/  # Pulisci vecchia build
           docker run --rm \
-            -v $(pwd):/app \
-            -v /app/node_modules \
-            -v /app/dist \
+            -v $(pwd):/app:rw \
             starlight-dev \
+            npm run build \
             || { echo "❌ Astro build failed"; exit 1; }
           echo "✅ Astro site built successfully"
 
-      - name: 📁 Verify output
+      - name: 🔍 Debug config & output
         run: |
-          echo "📋 Built files:"
+          echo "📋 Repository name: ${{ github.event.repository.name }}"
+          echo "📍 Expected base path: /${{ github.event.repository.name }}"
+          echo "📄 astro.config.mjs:"
+          cat astro.config.mjs || echo "❌ astro.config.mjs MISSING!"
+          echo "📁 Built files:"
           ls -la dist/
-          echo "📊 File count: $(find dist/ -type f | wc -l)"
+          echo "📊 Files: $(find dist/ -type f | wc -l)"
 
       - name: 📤 Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
