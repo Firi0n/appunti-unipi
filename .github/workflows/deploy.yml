@@ -10,15 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repository
       - uses: actions/checkout@v4
 
-      # Build Docker image locally
+      # Build Docker image
       - name: Build Docker image
         run: docker build -t starlight-dev .
 
-      # Run the build inside the container
+      # Run the container (it executes CMD, i.e., npm run build)
       - name: Build site inside container
-        run: docker run --rm -v $GITHUB_WORKSPACE:/app starlight-dev npx astro build
+        run: docker run --rm -v $GITHUB_WORKSPACE:/app starlight-dev
 
       # Deploy to GitHub Pages
       - name: Deploy

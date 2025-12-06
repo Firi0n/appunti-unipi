@@ -33,4 +33,4 @@ COPY . .
 EXPOSE 4321
 
 # Start Astro dev server with host binding for container access
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "build"]
