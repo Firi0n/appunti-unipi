@@ -1,5 +1,4 @@
-name: Deploy Astro to GitHub Pages
-
+name: Deploy Starlight to GitHub Pages
 on:
   push:
     branches: [master]
@@ -18,25 +17,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔄 Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 🔨 Build Docker
+      - name: Build Docker image
         run: |
-          docker build -t starlight-dev .
-          docker run --rm starlight-dev d2 --version
+          echo "🔨 Building Docker image..."
+          docker build -t starlight-d2 .
+          echo "✅ Docker image built"
 
-      - name: 🏗️ Build site
+      - name: Run Starlight build
         run: |
-          rm -rf dist/
-          docker run --rm -v $(pwd):/app:rw starlight-dev sh -c "npm run build"
-
-      - name: 🔍 Verify
-        run: |
+          echo "🏗️ Building Starlight site..."
+          docker run --rm \
+            -v $(pwd):/app \
+            starlight-d2
+          echo "✅ Build completed"
           ls -la dist/
-          test -f dist/index.html && echo "✅ index.html OK" || echo "❌ NO index.html"
 
-      - name: 📤 Upload
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -44,8 +42,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment: github-pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 🚀 Deploy
+      - uses: actions/deploy-pages@v4
         id: deployment
-        uses: actions/deploy-pages@v4

@@ -1,6 +1,6 @@
 services:
   starlight:
-    container_name: starlight-dev
+    container_name: starlight-d2
     build:
       context: .
       dockerfile: Dockerfile
