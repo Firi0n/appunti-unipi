@@ -32,5 +32,5 @@ COPY . .
 # Expose Astro dev server port
 EXPOSE 4321
 
-# Start Astro dev server with host binding for container access
+# Build the project
 CMD ["npm", "run", "build"]
