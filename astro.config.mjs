@@ -18,6 +18,8 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://firi0n.github.io/appunti-unipi",
+	base: "/appunti-unipi",
 	markdown: {
 		remarkPlugins: [
 			[remarkToc, { heading: "toc", maxDepth: 6 }],
