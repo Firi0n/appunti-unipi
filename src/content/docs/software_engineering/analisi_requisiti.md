@@ -124,13 +124,17 @@ graph TB
     priorità --> MoSCoW
     subgraph MoSCoW
     direction TB
-        MH("<center>Must have<br>(Requisiti obbligatori)</center>")
+        MH("Must have
+(Requisiti obbligatori)")
         MH ~~~ SH
-        SH("<center>Should have<br>(Requisiti desiderabili)</center>")
+        SH("Should have
+(Requisiti desiderabili)")
         SH ~~~ CH
-        CH("<center>Could have<br>(Requisiti opzionali)</center>")
+        CH("Could have
+(Requisiti opzionali)")
         CH ~~~ WH
-        WH("<center>Want to have<br>(Requisiti differibili)</center>")
+        WH("Want to have
+(Requisiti differibili)")
     end
     basata_su --> tempicosti(analisi costi e tempi di produzione)
 ```

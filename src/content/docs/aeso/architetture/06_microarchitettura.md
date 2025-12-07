@@ -10,77 +10,132 @@ L'architettura del calcolatore è definita da un set di istruzioni e da uno stat
 
 ```mermaid
 graph TD
-    Title["Composizione istruzioni<br>operative ARM<br>32 bit"]
-    Title --> Cond[CondBit<br>31-28]
-    Cond --> N[N<br>31]
-    Cond --> Z[Z<br>30]
-    Cond --> C[C<br>29]
-    Cond --> V[V<br>28]
-    Title --> Op[Op<br>27-26] --> 00
-    Title --> Funct[Funct<br>25-20]
-    Funct --> CMD[CMB<br>24-21] --> CMDdes[Tipo<br>istruzione<br>operativa]
-    Funct --> S[S<br>20] --> Sdes[Se scriviamo<br>nei flag]
-    Title --> Rn[Rn<br>19-16]
-    Title --> Rd[Rd<br>15-12]
-    Title --> src[src2<br>11-0]
+    Title["Composizione istruzioni
+operative ARM
+32 bit"]
+    Title --> Cond["CondBit
+31-28"]
+    Cond --> N["N
+31"]
+    Cond --> Z["Z
+30"]
+    Cond --> C["C
+29"]
+    Cond --> V["V
+28"]
+    Title --> Op["Op
+27-26"] --> 00
+    Title --> Funct["Funct
+25-20"]
+    Funct --> CMD["CMB
+24-21"] --> CMDdes["Tipo
+istruzione
+operativa"]
+    Funct --> S["S
+20"] --> Sdes["Se scriviamo
+nei flag"]
+    Title --> Rn["Rn
+19-16"]
+    Title --> Rd["Rd
+15-12"]
+    Title --> src["src2
+11-0"]
     src --> I -->I0[0]
-    Funct --> I[I<br>25]
-    I0 --> rot[rot<br>11-8]
-    I0 --> imm[imm<br>7-0]
+    Funct --> I["I
+25"]
+    I0 --> rot["rot
+11-8"]
+    I0 --> imm["imm
+7-0"]
     I --> I1[1]
-    I1 --> bt[...<br>11-7] --> x[x<br>4]
-    I1 --> SM[SM<br>6-5]
-    I1 --> x --> |0|SHMTS[SHMTS<br>11-7]
-    x --> |1|RS[RS<br>11-8]
-    I1 --> Rm[Rm<br>3-0]
+    I1 --> bt["...
+11-7"] --> x["x
+4"]
+    I1 --> SM["SM
+6-5"]
+    I1 --> x --> |0|SHMTS["SHMTS
+11-7"]
+    x --> |1|RS["RS
+11-8"]
+    I1 --> Rm["Rm
+3-0"]
 ```
 
 ---
 
 ```mermaid
 graph TD
-    Title[Composizione istruzioni<br>memoria ARM<br>32 bit]
-    Title --> Cond[CondBit<br>31-28]
-    Cond --> N[N<br>31]
-    Cond --> Z[Z<br>30]
-    Cond --> C[C<br>29]
-    Cond --> V[V<br>28]
-    Title --> Op[Op<br>27-26] --> 01
-    Title --> Funct[Funct<br>25-20]
-    Funct --> P[P<br>24] --> Comb
-    Funct --> U[U<br>23] -->|0|Somma
+    Title["Composizione istruzioni
+memoria ARM
+32 bit"]
+    Title --> Cond["CondBit
+31-28"]
+    Cond --> N["N
+31"]
+    Cond --> Z["Z
+30"]
+    Cond --> C["C
+29"]
+    Cond --> V["V
+28"]
+    Title --> Op["Op
+27-26"] --> 01
+    Title --> Funct["Funct
+25-20"]
+    Funct --> P["P
+24"] --> Comb
+    Funct --> U["U
+23"] -->|0|Somma
     U -->|1|Sottrazione
-    Funct --> B[B<br>22] -->|0|Word
+    Funct --> B["B
+22"] -->|0|Word
     B -->|1|Byte
-    Funct --> W[W<br>21] --> Comb
-    Funct --> L[L<br>20] -->|0|Store
+    Funct --> W["W
+21"] --> Comb
+    Funct --> L["L
+20"] -->|0|Store
     L -->|1|Load
     Comb -->|00|Post-index
     Comb -->|10|Spiazzamento
     Comb -->|11|Pre-index
-    Title --> Rn[Rn<br>19-16]
-    Title --> Rd[Rd<br>15-12]
-    Title --> src[src2<br>11-0]
-    src --> I -->|0|imm[imm<br>11-0]
-    Funct --> I[I<br>25]
+    Title --> Rn["Rn
+19-16"]
+    Title --> Rd["Rd
+15-12"]
+    Title --> src["src2
+11-0"]
+    src --> I -->|0|imm["imm
+11-0"]
+    Funct --> I["I
+25"]
     I --> I1[1]
-    I1 --> Shamts[Shamts<br>11-7]
-    I1 --> SM[SM<br>6-5]
-    I1 --> Rm[Rm<br>3-0]
+    I1 --> Shamts["Shamts
+11-7"]
+    I1 --> SM["SM
+6-5"]
+    I1 --> Rm["Rm
+3-0"]
 ```
 
 ---
 
 ```mermaid
 graph TD
-    Title[Composizione<br>Istruzioni salto ARM<br>32 bit]
-    Title --> Cond[Cond<br>31-28]
-    Title --> Op[Op<br>27-26] --> 10
-    Title --> 1L[1L<br>25-24] --> L0{L==0} -->|Vero| B
+    Title["Composizione
+Istruzioni salto ARM
+32 bit"]
+    Title --> Cond["Cond
+31-28"]
+    Title --> Op["Op
+27-26"] --> 10
+    Title --> 1L["1L
+25-24"] --> L0{L==0} -->|Vero| B
     L0 -->|Falso| BL
-    Title --> Immediate[Immediato<br>con segno<br>23-0] --> Imm0{Immediato > 0}
-    Imm0-->|Vero| SA[Salto in avanti]
-    Imm0-->|Falso| SI[Salto indietro]
+    Title --> Immediate["Immediato
+con segno
+23-0"] --> Imm0{Immediato > 0}
+    Imm0-->|Vero| SA["Salto in avanti"]
+    Imm0-->|Falso| SI["Salto indietro"]
 ```
 
 # Stato architetturale

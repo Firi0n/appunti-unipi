@@ -21,20 +21,26 @@ graph TB
     P -->|produce| A[Architettura]
 
     P --> Div[Si divide in]
-    Div --> PA[Progettazione<br>architetturale]
-    PA --> PA_Des1[scompone<br>in sottosistemi]
+    Div --> PA["Progettazione
+architetturale"]
+    PA --> PA_Des1["scompone
+in sottosistemi"]
     PA -->|identifica| PRPV
     PA --> specifica --> PRPV
-    Div --> PD[Progettazione<br>di dettaglio]
+    Div --> PD["Progettazione
+di dettaglio"]
     PD -->|dettaglia| specifica
 
     A --> Def[definizione]
-    Def -->|è la|SS[struttura<br>del sistema]
+    Def -->|è la|SS["struttura
+del sistema"]
     Def -->|costituita| PRPV
     subgraph PRPV [ ]
-        parti & relazioni --> PV(proprietà<br>visibili)
+        parti & relazioni --> PV("proprietà
+visibili")
     end
-    Def --> ca(considera<br>aspetti)
+    Def --> ca("considera
+aspetti")
     ca --> funzionali
     ca -->|non| funzionali
     A -->|descritta| viste
@@ -44,13 +50,14 @@ graph TB
         Strutturale ~~~
         Deployment
     end
-    A -->|si divide in| famiglie -->|con| car_com[caratteristiche<br>comuni]
+    A -->|si divide in| famiglie -->|con| car_com["caratteristiche
+comuni"]
     famiglie -->|seguono| stili
     subgraph stili
     direction LR
     subgraph 1 [ ]
     direction TB
-        PP[Pipes & Filter] ~~~
+        PP["Pipes & Filter"] ~~~
         Client-Server ~~~
         Master-Slave ~~~
         P2P
@@ -59,7 +66,7 @@ graph TB
     direction TB
         Publish-Subscribe ~~~
         Model-View-->Controller & Presenter ~~~
-        PC[Process Coordinator]
+        PC["Process Coordinator"]
     end
     1 ~~~ 2
     end
@@ -75,17 +82,23 @@ config:
   layout: elk
 ---
 flowchart TD
-    VC(Comportamentale) -->|definisce| VSSE(struttura sistema<br>a runtime) --> tramite
+    VC("Comportamentale") -->|definisce| VSSE("struttura sistema
+a runtime") --> tramite
     subgraph tramite
     direction LR
         interfacce ~~~ componenti ~~~ connettori
-        componenti -->|sono| comp_des[unità software<br>indipendente e riusabile]
+        componenti -->|sono| comp_des["unità software
+indipendente e riusabile"]
         componenti --> incapsula --> funzionalità & dati
-        componenti -->|fornisce punti di<br>interazione|porti
-        interfacce -->|restringe<br>accesso| funzionalità
+        componenti -->|fornisce punti di
+interazione| porti
+        interfacce -->|"restringe
+accesso"| funzionalità
         connettori -->|collegano| porti
     end
-    VC(Comportamentale) --> utile --> VU1[analisi delle caratteristiche<br>di qualità a runtime] & VU2[documentare lo<br>stile dell’architettura]
+    VC("Comportamentale") --> utile --> VU1["analisi delle caratteristiche
+di qualità a runtime"] & VU2["documentare lo
+stile dell’architettura"]
 ```
 
 ---
@@ -98,13 +111,18 @@ config:
   layout: elk
 ---
 graph TB
-    VS(Strutturale) -->|definisce| UR[Unità di<br>realizzazione]
-    VS --> utile --> AD[analisi<br>dipendenze] & PD[progettazione<br>test] & VP[valutazione<br>portabilità]
+    VS["Strutturale"] -->|definisce| UR["Unità di
+realizzazione"]
+    VS --> utile --> AD["analisi
+dipendenze"] & PD["progettazione
+test"] & VP["valutazione
+portabilità"]
     UR --> tramite
     subgraph tramite
     direction LR
         subgraph moduli
-        URM[unità software] -->|contenenti| ICR[insieme coerente<br>di responsabilità]
+        URM["unità software"] -->|contenenti| ICR["insieme coerente
+di responsabilità"]
         end
         relazioni --> moduli
     end
@@ -120,16 +138,21 @@ config:
   layout: elk
 ---
 graph TB
-    VL["Logistica<br>(Deployment)"]
-    VL -->|definisce| VLD[l'allocazione del software<br>su ambinti di esecuzione]
+    VL["Logistica
+(Deployment)"]
+    VL -->|definisce| VLD["l'allocazione del software
+su ambinti di esecuzione"]
     VL -->|utile| valutazione --> prestazioni & affidabilità
     VLD --> tramite
     subgraph tramite
     direction LR
         subgraph Artefatti
-            VLP{prodotti} --> proc[processo di<br>sviluppo software] & fun[funzionamento<br>di un sistema]
+            VLP{prodotti} --> proc["processo di
+sviluppo software"] & fun["funzionamento
+di un sistema"]
         end
-        AE[Ambienti<br>esecuzione] ~~~ Artefatti
+        AE["Ambienti
+esecuzione"] ~~~ Artefatti
         dislocazione -->|degli| Artefatti
         dislocazione -->|negli| AE
         Artefatti -->|interconnessi| Artefatti
@@ -146,16 +169,19 @@ config:
   layout: elk
 ---
 flowchart TD
-    PF(Pipes & Filter) -->|consiste|fe[flusso di<br>elaborazione dati]
+    PF["Pipes & Filter"] -->|consiste| fe["flusso di
+elaborazione dati"]
     fe -->|viaggiano| Pipe
     fe -->|processati| Filter
     PF -->|componenti| Filter
     PF -->|connettori| Pipe
 
-    Filter -->|ingresso| fl[flusso di dati]
-    Filter -->|uscita| flt[flusso di dati<br>trasformati]
+    Filter -->|ingresso| fl["flusso di dati"]
+    Filter -->|uscita| flt["flusso di dati
+trasformati"]
 
-    Pipe --> unidirezionale & bufferizzato & po(preserva ordine<br>dati)
+    Pipe --> unidirezionale & bufferizzato & po("preserva ordine
+dati")
 ```
 
 ## Client-Server
@@ -175,13 +201,19 @@ config:
 ---
 classDiagram
 direction LR
-    class RH["Request<br>Handler"]
-    note for RH "elabora la richiesta e invia<br>la risposta al client"
-    class SfH["Statefull<br>Handler"]
-    note for SfH "consente richieste composite tramite sessione<br>(record delle richieste di un client)"
-    class SlH["Stateless<br>Handler"]
+    class RH["Request
+Handler"]
+    note for RH "elabora la richiesta e invia
+la risposta al client"
+    class SfH["Statefull
+Handler"]
+    note for SfH "consente richieste composite tramite sessione
+(record delle richieste di un client)"
+    class SlH["Stateless
+Handler"]
     note for SlH "gestisce ogni richiesta in modo indipendente"
-    class RL["Request<br>Listener"]
+    class RL["Request
+Listener"]
     note for RL "in attesa di richieste"
     RL "1" --> "*" RH
     RH <|-- SfH
@@ -225,7 +257,10 @@ direction LR
     class Publisher-Subscriber{
         <<component>>
     }
-    note for Publisher-Subscriber "Publisher: produce classi di eventi<br><br>Subscriber: si abbona alle classi di<br>eventi che ritiene rilevanti"
+    note for Publisher-Subscriber "Publisher: produce classi di eventi
+
+Subscriber: si abbona alle classi di
+eventi che ritiene rilevanti"
     class Broker{
         <<component>>
     }

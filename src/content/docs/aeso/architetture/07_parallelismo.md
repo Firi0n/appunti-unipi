@@ -8,7 +8,8 @@ sidebar:
 
 ```mermaid
 graph LR
-  Split[Split<br>m elements] --> W1[Worker 1]
+  Split["Split
+  m elements"] --> W1[Worker 1]
   Split --> 3p[...]
   Split --> Wn[Worker n]
   W1 --> Merge

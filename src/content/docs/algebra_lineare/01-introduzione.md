@@ -102,8 +102,6 @@ $$
 \end{cases}
 $$
 
-<br>
-
 $$
 (x_1 , \dots, x_n)\in\mathbb{R}^n=soluzione
 $$

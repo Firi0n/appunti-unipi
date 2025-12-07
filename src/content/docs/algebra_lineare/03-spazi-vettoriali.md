@@ -71,8 +71,6 @@ Una combinazione lineari si definisce **banale** se:
 
 $$\forall i\in[1,k]\ .\ a_i=0$$
 
-<br>
-
 $$k=0\Rightarrow 0\in V\text{combinazione lineare di 0 vettori}$$
 
 # Spazio generato

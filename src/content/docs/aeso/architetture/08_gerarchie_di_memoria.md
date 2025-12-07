@@ -31,8 +31,12 @@ graph LR
     Memory --> bottleneck --> CPU
     end
 
-    Input(Input<br>device) -->MCPU --> Output(Output<br>device)
-    MCPU --> ASD(Auxiliary<br>Storage<br>device)
+    Input("Input
+    device") -->MCPU --> Output("Output
+    device")
+    MCPU --> ASD("Auxiliary
+    Storage
+    device")
     ASD --> MCPU
 ```
 
