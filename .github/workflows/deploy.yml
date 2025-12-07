@@ -28,7 +28,10 @@ jobs:
       - name: Run Starlight build
         run: |
           echo "🏗️ Building Starlight site..."
-          docker run --rm -e ASTRO_TELEMETRY_DISABLED=1 -v $(pwd)/dist:/app/dist starlight-d2
+          docker run --rm -v $(pwd)/dist:/app/dist starlight-d2
+          echo "🔧 Fixing dist permissions..."
+          sudo chown -R $USER:$USER dist
+          chmod -R u+rwX,go+rX dist
           echo "✅ Build completed"
 
       - name: Upload artifact
