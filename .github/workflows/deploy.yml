@@ -28,7 +28,7 @@ jobs:
       - name: Run Starlight build
         run: |
           echo "🏗️ Building Starlight site..."
-          docker run --rm -v $(pwd):/app -v /app/node_modules -v $(pwd)/.config:/root/.config --user $(id -u):$(id -g) starlight-d2
+          docker run --rm -e ASTRO_TELEMETRY_DISABLED=1 -v $(pwd)/dist:/app/dist starlight-d2
           echo "✅ Build completed"
 
       - name: Upload artifact
