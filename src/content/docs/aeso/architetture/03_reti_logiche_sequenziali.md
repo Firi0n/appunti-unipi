@@ -24,7 +24,7 @@ Il latch ha due ingressi, $S$ e $R$, e due uscite, $Q$ e $\overline{Q}$.
 | 1   | 0   | 1          | 0                     |
 | 1   | 1   | 0          | 0                     |
 
-![](/assets/aeso/architetture/latch_sr.drawio.svg)
+![](/src/assets/aeso/architetture/latch_sr.png)
 
 ## Latch D
 
@@ -42,7 +42,7 @@ Questo latch ha due ingressi: un ingresso **dati**, **D**, che controlla il pros
 | 1   | 0   | 1              | 0   | 1   | 0          | 1                     |
 | 1   | 1   | 0              | 1   | 0   | 1          | 0                     |
 
-![](/assets/aeso/architetture/latch_d.drawio.svg)
+![](/src/assets/aeso/architetture/latch_d.png)
 
 ## Flip-flop D
 
@@ -55,7 +55,7 @@ Tuttavia, il f**lip-flop D** è tipicamente realizzato con una **coppia di latch
 suo complemento), il che introduce una **latenza iniziale**: per ottenere il primo aggiornamento completo, sono
 necessari **due cicli di clock**.
 
-![](/assets/aeso/architetture/flip-flop_d.drawio.svg)
+![](/src/assets/aeso/architetture/flip-flop_d.png)
 
 ## Registro
 
@@ -68,7 +68,7 @@ delle **reti sequenziali**.
 Un **flip-flop** con abilitazione aggiunge un altro ingresso, chiamato **EN** o **ENABLE**, per determinare se
 **memorizzare** o no il dato sul **fronte del clock**.
 
-![](/assets/aeso/architetture/flip-flop_en.drawio.svg)
+![](/src/assets/aeso/architetture/flip-flop_en.png)
 
 # Reti sequenziali sincrone
 
@@ -158,7 +158,7 @@ $R_2$. I segnali d'uscita cambiano dopo un **ritardo di contaminazione** e si st
 propagazione**. Questi ritardi sono cruciali per analizzare i vincoli temporali relativi ai tempi di setup e hold del
 registro $R_2$.
 
-![](/assets/aeso/architetture/ritardi.png)
+![](/src/assets/aeso/architetture/ritardi.png)
 
 Il **tempo di ciclo** ($T_c$) deve rispettare la condizione:
 
@@ -209,7 +209,7 @@ BASSO, ma non meta-stabile.
 
 Un sincronizzatore può essere realizzato con due flip-flop.
 
-![](/assets/aeso/architetture/sincronizzatore.drawio.svg)
+![](/src/assets/aeso/architetture/sincronizzatore.png)
 
 Un sincronizzatore fallisce se $Q$ diventa metastabile, ciò può accadere se l'uscita intermedia $D_2$ non si stabilizza
 prima di essere campionata. La probabilità di errore per un cambiamento di un ingresso è data da:

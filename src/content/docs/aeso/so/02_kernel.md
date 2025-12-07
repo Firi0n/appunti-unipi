@@ -57,7 +57,7 @@ operativo possa eseguire l'operazione richiesta in sicurezza.
 Questo meccanismo di separazione tra modalità utente e modalità kernel garantisce la protezione del sistema, impedendo
 ai processi di accedere direttamente alle risorse critiche e prevenendo eventuali comportamenti dannosi o involontari.
 
-![schema doppia modalità](/assets/aeso/so/double_mode_scheme.png)
+![schema doppia modalità](/src/assets/aeso/so/double_mode_scheme.png)
 
 Il Kernel è solo una parte del sistema operativo, il restante viene eseguito in **user mode** come libreria collegata a
 ciascuna applicazione. Queste librerie, che contengono funzioni di livello più alto rispetto al Kernel, offrono servizi

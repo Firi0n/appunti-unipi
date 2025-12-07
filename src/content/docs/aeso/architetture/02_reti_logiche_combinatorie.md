@@ -157,7 +157,7 @@ in uscita.
 
 $\overline{S}\cdot D_0+S\cdot D_1$
 
-![](/assets/aeso/architetture/multiplexer.drawio.svg)
+![](/src/assets/aeso/architetture/multiplexer.png)
 
 Si possono costruire anche multiplexer più grandi a partire da quello a due ingressi visto precedentemente.
 
@@ -173,7 +173,7 @@ ingresso.
 | 1   | 0   | 0     | 0     | 1     | 0     |
 | 1   | 1   | 0     | 0     | 0     | 1     |
 
-![](/assets/aeso/architetture/decoder.drawio.svg)
+![](/src/assets/aeso/architetture/decoder.png)
 
 # Temporizzazione
 
@@ -187,7 +187,7 @@ La logica combinatoria è caratterizzata da.
 -   ritardo di contaminazione ($t_{cd}$): è il tempo minimo che trascorre dal momento in cui cambia un ingresso al
     momento in cui una qualsiasi uscita comincia il processo di adattamento del suo valore.
 
-![](/assets/aeso/architetture/tempo.png)
+![](/src/assets/aeso/architetture/tempo.png)
 
 ## Alee
 

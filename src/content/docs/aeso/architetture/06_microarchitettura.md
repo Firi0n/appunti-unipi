@@ -10,7 +10,7 @@ L'architettura del calcolatore è definita da un set di istruzioni e da uno stat
 
 ```mermaid
 graph TD
-    Title[Composizione istruzioni<br>operative ARM<br>32 bit]
+    Title["Composizione istruzioni<br>operative ARM<br>32 bit"]
     Title --> Cond[CondBit<br>31-28]
     Cond --> N[N<br>31]
     Cond --> Z[Z<br>30]
@@ -106,7 +106,7 @@ Le parti fondamentali del datapath sono:
 
 ## Program counter
 
-![program counter](/assets/aeso/architetture/program_counter.png)
+![program counter](/src/assets/aeso/architetture/program_counter.png)
 
 Esso viene realizzarlo come registro autonomo a 32 bit.
 
@@ -120,7 +120,7 @@ Uscite:
 
 ## Memoria istruzioni
 
-![memoria istruzioni](/assets/aeso/architetture/memoria_istruzioni.png)
+![memoria istruzioni](/src/assets/aeso/architetture/memoria_istruzioni.png)
 
 Ingressi:
 
@@ -132,7 +132,7 @@ Uscite:
 
 ## Banco dei registri di lavoro
 
-![Banco dei registri di lavoro](/assets/aeso/architetture/registri.png)
+![Banco dei registri di lavoro](/src/assets/aeso/architetture/registri.png)
 
 Il banco di registri di 15 elementi da 32 bit contiene i registri R0-R14, ed ha un ingresso aggiuntivo per ricevere R15
 dal PC.
@@ -152,7 +152,7 @@ Uscite:
 
 ## Memoria dati
 
-![Memoria dati](/assets/aeso/architetture/memoria_dati.png)
+![Memoria dati](/src/assets/aeso/architetture/memoria_dati.png)
 
 Ingressi:
 
@@ -178,11 +178,11 @@ quantità di stato non architetturale inserito.
 
 Si parte con il progetto di una microarchitettura che esegue le istruzioni in un singolo ciclo.
 
-![Syngle-cycle](/assets/aeso/architetture/single_cycle.png)
+![Syngle-cycle](/src/assets/aeso/architetture/single_cycle.png)
 
 ## Control unit
 
-![Syngle-cycle control unit](/assets/aeso/architetture/single_cycle_cu.png)
+![Syngle-cycle control unit](/src/assets/aeso/architetture/single_cycle_cu.png)
 
 ## Analisi prestazionale
 
@@ -203,15 +203,15 @@ Il processore multi ciclo si propone di eliminare queste tre debolezze dividendo
 più brevi tramite l'ausilio di elementi di stato non architetturali: in ciascun passo, il processore legge o scrive in
 memoria o nel banco di registri, oppure usa l’ALU.
 
-![Multi-cycle](/assets/aeso/architetture/multi_cycle.png)
+![Multi-cycle](/src/assets/aeso/architetture/multi_cycle.png)
 
 ## Control unit
 
-![Multi-cycle control unit](/assets/aeso/architetture/multi_cycle_cu.png)
+![Multi-cycle control unit](/src/assets/aeso/architetture/multi_cycle_cu.png)
 
 ## Stati
 
-![Stati multi-cycle](/assets/aeso/architetture/state_multi_cycle.png)
+![Stati multi-cycle](/src/assets/aeso/architetture/state_multi_cycle.png)
 
 ## Analisi prestazionale
 
@@ -256,7 +256,7 @@ queste attività lente.
 | Memory     | Data Memory (DM)           |
 | Write back | Register file (RF)         |
 
-![schema pipeline](/assets/aeso/architetture/pipeline_scheme.png)
+![schema pipeline](/src/assets/aeso/architetture/pipeline_scheme.png)
 
 ## Datapath
 
@@ -318,7 +318,7 @@ la previsione è sbagliata, si deve svuotare la pipeline.
 
 Per fare tutto ciò si usa un'unità di gestione delle dipendenze.
 
-![pipeline processor](/assets/aeso/architetture/pipeline.png)
+![pipeline processor](/src/assets/aeso/architetture/pipeline.png)
 
 # Microarchitetture avanzate
 

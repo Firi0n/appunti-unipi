@@ -137,7 +137,7 @@ La porta **XOR** può essere costruita con le **AND** e le **OR** nel seguente m
 
 $$A\oplus B = \overline{A}\cdot B+A\cdot\overline{B}$$
 
-![](/assets/aeso/architetture/xor.drawio.svg)
+![](/src/assets/aeso/architetture/xor.png)
 
 ```verilog
 module XOR(output c, input a, input b);

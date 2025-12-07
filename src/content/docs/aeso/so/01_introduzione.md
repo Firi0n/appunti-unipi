@@ -9,7 +9,7 @@ sidebar:
 Il sistema operativo di un dispositivo è il componente software che si occupa di gestire le risorse hardware del
 dispositivo stesso, ponendosi come intermediario tra le applicazioni utilizzate dall'utente e l'hardware.
 
-![Schema sistema operativo](/assets/aeso/so/operating_system_architecture.png)
+![Schema sistema operativo](/src/assets/aeso/so/operating_system_architecture.png)
 
 # Condivisione delle risorse
 

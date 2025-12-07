@@ -28,7 +28,7 @@ $$S=A\oplus B$$
 
 $$C=A\cdot B$$
 
-![](/assets/aeso/architetture/half_adder.drawio.svg)
+![](/src/assets/aeso/architetture/half_adder.png)
 
 ```verilog
 module HA(output rip, output c, input a, input b);
@@ -53,7 +53,7 @@ Il riporto viene calcolato come:
 
 $$C_{out}=S_0+S_1$$
 
-![](/assets/aeso/architetture/full-adder.drawio.svg)
+![](/src/assets/aeso/architetture/full-adder.png)
 
 ```verilog
 module FA(output cout, output s, input a, input b, input cin);
@@ -133,7 +133,7 @@ Un comparatore determina se due numeri binari sono uguali o se uno dei due è ma
 
 Ha un solo bit di uscita che indica se i numeri a N-bit passati sono uguali.
 
-![](/assets/aeso/architetture/comparatore.drawio.svg)
+![](/src/assets/aeso/architetture/comparatore.png)
 
 ### Comparatore di valore
 
@@ -163,7 +163,7 @@ dell’ALU. l’uscita FlagALU è composta dalle flag:
 -   $C$: il sommatore ha generato un **carry**;
 -   $V$ il sommatore ha generato un **overflow**.
 
-![](/assets/aeso/architetture/ALU.png)
+![](/src/assets/aeso/architetture/ALU.png)
 
 ## Translatori e rotatori
 
@@ -177,7 +177,7 @@ dell’ALU. l’uscita FlagALU è composta dalle flag:
 
 Un traslatore a $N$ bit può essere costruito con un numero $N$ di multiplexer $N:1$.
 
-![](/assets/aeso/architetture/traslatori_rotatori.png)
+![](/src/assets/aeso/architetture/traslatori_rotatori.png)
 
 # Componenti di memoria
 
@@ -234,7 +234,7 @@ condensatore è caricato a **VDD**, il bit memorizzato è **1**; se è scaricato
 bit trasferisce il valore dal condensatore alla linea di bit, distruggendo il dato, che deve essere riscritto. Poiché la
 carica del condensatore si dissipa nel tempo, è necessario rinfrescare periodicamente la DRAM.
 
-![](/assets/aeso/architetture/DRAM.png)
+![](/src/assets/aeso/architetture/DRAM.png)
 
 ## SRAM
 
@@ -244,7 +244,7 @@ bit della SRAM utilizza dei negatori collegati a croce per mantenere il valore d
 dati tra la cella e le linee di bit. A differenza della DRAM, se il valore del bit viene deteriorato dal rumore, i
 negatori collegati a croce ripristinano il valore corretto.
 
-![](/assets/aeso/architetture/SRAM.png)
+![](/src/assets/aeso/architetture/SRAM.png)
 
 ## Banchi di registri
 

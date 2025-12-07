@@ -8,7 +8,7 @@ Oltre al processore e alla memoria, un sistema di computer ha il bisogno di inte
 questo viene fatto tramite le operazioni di **I/O**, che passano per dei **moduli di I/O**, attraverso il **BUS**,
 arrivando ai dispositivi esterni detti **periferiche**.
 
-![IO scheme](/assets/aeso/architetture/io_scheme.png)
+![IO scheme](/src/assets/aeso/architetture/io_scheme.png)
 
 Le operazioni di **Input/Output (I/O)** hanno un impatto significativo sul tempo totale di esecuzione di un programma.
 
@@ -91,7 +91,7 @@ Essi si interfacciano con il modulo di I/O tamite tre tipi di segnali:
 -   **Dati** $\rightarrow$ Insieme di bit trasferiti tra il dispositivo e il modulo di I/O.
 -   **Stato** $\rightarrow$ Indicano se il dispositivo è pronto per il trasferimento dati (es. READY/NOT-READY).
 
-![](/assets/aeso/architetture/generic_io_device.drawio.png)
+![](/src/assets/aeso/architetture/generic_io_device.png)
 
 Un **buffer** è spesso presente per memorizzare temporaneamente i dati trasferiti. Nei dispositivi seriali è solitamente
 di 8-16 bit, mentre nei dispositivi a blocchi (es. dischi) può essere molto più grande.
@@ -169,7 +169,7 @@ solo una descrizione generale.
 
 Ecco un diagramma a blocchi di un generale modulo di I/O:
 
-![](/assets/aeso/architetture/controller_IO.png)
+![](/src/assets/aeso/architetture/controller_IO.png)
 
 Il modulo si collega al resto del computer attraverso un insieme di linee di segnale.
 
@@ -254,7 +254,7 @@ Collega i **dispositivi di I/O**, senza connessione diretta a processore e memor
 
 **Esempi**: PCI, PCIe, USB, SATA.
 
-![Bus di sistema e bus di I/O](/assets/aeso/architetture/BUS_sistema_IO.png)
+![Bus di sistema e bus di I/O](/src/assets/aeso/architetture/BUS_sistema_IO.png)
 
 ## Backplane Bus
 
@@ -268,7 +268,7 @@ Collega **CPU, memoria e dispositivi di I/O** in un'unica infrastruttura.
 
 **Esempi**: VMEbus, Multibus.
 
-![Backplane Bus](/assets/aeso/architetture/BUS_backplane.png)
+![Backplane Bus](/src/assets/aeso/architetture/BUS_backplane.png)
 
 ## Progettazione del Bus
 
@@ -407,7 +407,7 @@ priorità.
 -   :x: **Non garantisce equità**, poiché i dispositivi con priorità inferiore possono rimanere senza accesso al bus
     (**starvation**).
 
-![Daisy-Chain Arbiter](/assets/aeso/architetture/daisy_chain_arbiter.png)
+![Daisy-Chain Arbiter](/src/assets/aeso/architetture/daisy_chain_arbiter.png)
 
 ### Funzionamento
 
@@ -438,7 +438,7 @@ indipendenti** di richiesta (**req**) e concessione (**grant**) per ciascun disp
 -   :white_check_mark: **Gestione efficiente delle richieste**
 -   :x: **Single Point of Failure (SPOF)**: se l’arbiter si guasta, l’intero sistema si blocca.
 
-![Centralized arbiter](/assets/aeso/architetture/centralized_arbiter.png)
+![Centralized arbiter](/src/assets/aeso/architetture/centralized_arbiter.png)
 
 ### Funzionamento
 

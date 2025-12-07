@@ -29,7 +29,11 @@ export default defineConfig({
 		rehypePlugins: [rehypeAccessibleEmojis, rehypeKatex],
 	},
 	integrations: [
-		mermaid(),
+		mermaid({
+			mermaidConfig: {
+				logLevel: "error",
+			},
+		}),
 		d2(),
 		starlight({
 			title: "Appunti Unipi",

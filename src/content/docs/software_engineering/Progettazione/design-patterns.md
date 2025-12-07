@@ -325,3 +325,68 @@ graph LR
     pro -- può essere --> esteso
     pro -- può essere<br>instanziato --> Fabric
 ```
+
+# Strutturali
+
+## Decorator
+
+```mermaid
+---
+config:
+    layout: elk
+    elk: {
+        considerModelOrder: "PREFER_NODES",
+        forceNodeModelOrder: true
+    }
+---
+graph LR
+
+Decorator --> pro --> flessibilità -- rispetto --> ES[Ereditarietà<br>statica]
+pro --> semplicità -- rispetto --> EM[Ereditarietà<br>multipla]
+pro --> cf[combinare<br>features] & dp[duplicare<br>proprietà]
+pro -- favorosce --> ai[aggiunta<br>incrementale]
+
+```
+
+### Implementazione
+
+```mermaid
+---
+config:
+    layout: elk
+    elk: {
+        considerModelOrder: "PREFER_NODES",
+        forceNodeModelOrder: true
+    }
+---
+classDiagram
+class Component{
+    +methodA()
+    +methodB()
+}
+class ConcreteComponent{
+    +methodA()
+    +methodB()
+}
+class Decorator{
+    +methodA()
+    +methodB()
+}
+class ConcreteDecorator1{
+    -Component wrappedObj
+    +methodA()
+    +methodB()
+}
+class ConcreteDecorator2{
+    -Component wrappedObj
+    -Object newState
+    +methodA()
+    +methodB()
+}
+
+Component <|-- ConcreteComponent
+Component <|-- Decorator
+Decorator <|-- ConcreteDecorator1
+Decorator <|-- ConcreteDecorator2
+Component <-- Decorator: component
+```
