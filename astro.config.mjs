@@ -33,6 +33,9 @@ export default defineConfig({
 		d2(),
 		starlight({
 			title: "Appunti Unipi",
+			logo: {
+				src: "/public/favicon.svg",
+			},
 			social: [
 				{
 					icon: "github",

@@ -1,7 +1,24 @@
 {
-  "name": "",
+  "name": "appunti-unipi",
   "type": "module",
   "version": "0.0.1",
+  "description": "Appunti universitari dell'Università di Pisa realizzati con Astro e Starlight",
+  "author": "Firi0n",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Firi0n/appunti-unipi.git"
+  },
+  "homepage": "https://firi0n.github.io/appunti-unipi/",
+  "keywords": [
+    "appunti",
+    "università",
+    "unipi",
+    "pisa",
+    "documentazione",
+    "astro",
+    "starlight"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
