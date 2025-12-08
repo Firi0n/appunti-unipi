@@ -71,10 +71,6 @@ Sistema software che permette agli studenti universitari di trovare e cedere all
 ## Diagramma delle classi
 
 ```mermaid
----
-config:
-   layout: elk
----
 classDiagram
     class Utente{
         e-mail

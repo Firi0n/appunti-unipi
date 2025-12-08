@@ -5,13 +5,6 @@ sidebar:
 ---
 
 ```mermaid
----
-config:
-  layout: elk
-  elk: {
-    nodePlacementStrategy: "LINEAR_SEGMENTS"
-  }
----
 flowchart TD
     PS(Processo software) -->|definizione| def_PS(sequenza di attività necessarie a sviluppare un sistema software)
     PS --> fasi

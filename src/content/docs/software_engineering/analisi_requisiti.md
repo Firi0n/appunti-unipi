@@ -5,13 +5,6 @@ sidebar:
 ---
 
 ```mermaid
----
-config:
-  layout: elk
-  elk: {
-    nodePlacementStrategy: "NETWORK_SIMPLEX"
-  }
----
 flowchart TB
     AR(Analisi dei requisiti) --> Dominio
     Dominio --> modello
@@ -46,13 +39,6 @@ flowchart TB
 ## Acquisizione
 
 ```mermaid
----
-config:
-  layout: elk
-  elk: {
-    nodePlacementStrategy: "SIMPLE"
-  }
----
 graph TD
     Acquisizione --> Interviste
     Acquisizione --> Questionari
@@ -67,9 +53,12 @@ graph TD
 ```mermaid
 ---
 config:
-  layout: elk
+    elk: {
+        forceNodeModelOrder: false,
+    }
 ---
 graph TB
+
     Elaborazione --> doc_req[documento dei requisiti] --> Contratto(precede la stipula del contratto, e ne è parte integrante)
     doc_req --> parti
     subgraph parti
@@ -101,12 +90,6 @@ graph TB
         Tecnicismi ~~~
         Ridondanza
     end
-
-    Convalida --> evitare
-    Convalida --> tecniche --> Deskcheck --> Walkthrough --> let_seq(lettura sequenziale)
-    Deskcheck --> Ispezione --> let_strut(lettura strutturata)
-    tecniche --> lemmario --> def_lem(Utilizzo di termini del glossario con puntatori ai requisiti che li nominano)
-    tecniche --> NLP --> def_NLP(Utilizzo di strumenti di analisi lessicale e sintattica del linguaggio naturale)
 ```
 
 ---
@@ -114,10 +97,6 @@ graph TB
 ## Negoziazione
 
 ```mermaid
----
-config:
-  layout: elk
----
 graph TB
     Negoziazione --> priorità -->|sui| R1(*Requisiti)
     priorità --> basata_su(basata su) --> es_com(esigenze del committente)
@@ -146,10 +125,9 @@ graph TB
 ```mermaid
 ---
 config:
-  layout: elk
-  elk: {
-    nodePlacementStrategy: "SIMPLE"
-  }
+    elk: {
+        forceNodeModelOrder: false,
+    }
 ---
 graph TB
     Gestione --> IU(Identificatore unico) --> R2(*Requisito)

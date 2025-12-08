@@ -7,10 +7,9 @@ sidebar:
 ```mermaid
 ---
 config:
-  layout: elk
-  elk: {
-    nodePlacementStrategy: "NETWORK_SIMPLEX"
-  }
+    elk: {
+        forceNodeModelOrder: false,
+    }
 ---
 graph TB
     P[Progettazione] --> Pon[Ponte]
@@ -77,10 +76,6 @@ comuni"]
 ## Comportamentale
 
 ```mermaid
----
-config:
-  layout: elk
----
 flowchart TD
     VC("Comportamentale") -->|definisce| VSSE("struttura sistema
 a runtime") --> tramite
@@ -106,10 +101,6 @@ stile dell’architettura"]
 ## Strutturale
 
 ```mermaid
----
-config:
-  layout: elk
----
 graph TB
     VS["Strutturale"] -->|definisce| UR["Unità di
 realizzazione"]
@@ -133,10 +124,6 @@ di responsabilità"]
 ## Deploymenti
 
 ```mermaid
----
-config:
-  layout: elk
----
 graph TB
     VL["Logistica
 (Deployment)"]
@@ -164,10 +151,6 @@ esecuzione"] ~~~ Artefatti
 ## Pipes & Filter
 
 ```mermaid
----
-config:
-  layout: elk
----
 flowchart TD
     PF["Pipes & Filter"] -->|consiste| fe["flusso di
 elaborazione dati"]
@@ -195,10 +178,6 @@ direction LR
 ### Server
 
 ```mermaid
----
-config:
-  layout: elk
----
 classDiagram
 direction LR
     class RH["Request
@@ -231,10 +210,6 @@ direction LR
 ## P2P
 
 ```mermaid
----
-config:
-    layout: elk
----
 classDiagram
 direction LR
     class Peer
@@ -248,10 +223,6 @@ direction LR
 ## Publish-Subscriber
 
 ```mermaid
----
-config:
-  layout: elk
----
 classDiagram
 direction LR
     class Publisher-Subscriber{
@@ -287,10 +258,6 @@ eventi che ritiene rilevanti"
 ### Publisher e Subscriber distinti (PUSH)
 
 ```mermaid
----
-config:
-  layout: elk
----
 classDiagram
 direction LR
     class Publisher{
@@ -424,10 +391,6 @@ direction LR
 ## Process coordinator
 
 ```mermaid
----
-config:
-    layout: elk
----
 classDiagram
 direction LR
 Coordinator "1"-->"1..*" Component:Invoca

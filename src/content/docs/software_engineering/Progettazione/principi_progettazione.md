@@ -5,14 +5,6 @@ sidebar:
 ---
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 flowchart TD
 
     PP[Principi di progettazione] --> gp[good practise] -- mirano --> manutenibilità & riusabilità
@@ -22,12 +14,12 @@ flowchart TD
 60%"] & adattiva["adattiva
 20%"]
 
-    PP --> PG["[Principi generali](#principi-generali)"]
+    PP --> PG["Principi generali"]
 
-    PP --> CP[Collezioni di principi] --> SOLID["[SOLID](#solid)"] & GRASP["[GRASP](#grasp)"]
+    PP --> CP[Collezioni di principi] --> SOLID["SOLID"] & GRASP["GRASP"]
 
-    PP --> DP["[Design
-Patterns](/design-patterns)"]
+    PP --> DP["Design
+Patterns"]
 ```
 
 # Principi generali
@@ -35,10 +27,6 @@ Patterns](/design-patterns)"]
 ## Information hiding
 
 ```mermaid
----
-config:
-    layout: elk
----
 flowchart TD
 
     IH[Information hiding] --> separa --> Interfaccia["Interfaccia
@@ -60,10 +48,6 @@ indipendenti"] ~~~
 ## Astrazione
 
 ```mermaid
----
-config:
-    layout: elk
----
 flowchart TD
     Astrazione --> dati & controllo
     controllo -- nasconde --> algoritmo
@@ -75,10 +59,6 @@ flowchart TD
 ## Coesione
 
 ```mermaid
----
-config:
-    layout: elk
----
 flowchart LR
     Coesione -- delle --> funzionalità -- appartenenti --> Modulo
     Coesione -- per ogni --> modulo -- "uno ed
@@ -107,10 +87,6 @@ non funzionalmente"]
 ## Disaccoppiamento
 
 ```mermaid
----
-config:
-    layout: elk
----
 graph TD
 
 Disaccoppiamento -- non --> Accoppiamento
@@ -125,10 +101,6 @@ manutenibilità"]
 ## Mantra
 
 ```mermaid
----
-config:
-    layout: elk
----
 graph TD
 
 HCLC["HIGH COHESION
@@ -144,13 +116,6 @@ HCLC -- migliora --> comprensibilità
 ## SOLID
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        forceNodeModelOrder: true
-    }
----
 graph LR
 S["Single
 Responsibility"]
@@ -190,13 +155,6 @@ non necessaria"]
 ## GRASP
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        forceNodeModelOrder: true
-    }
----
 graph LR
     GRASP --> acronimo
     subgraph acronimo

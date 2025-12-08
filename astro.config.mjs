@@ -21,6 +21,9 @@ export default defineConfig({
 	site: "https://firi0n.github.io/appunti-unipi",
 	base: "/appunti-unipi",
 	markdown: {
+		syntaxHighlight: {
+			excludeLangs: ["mermaid", "math"],
+		},
 		remarkPlugins: [
 			[remarkToc, { heading: "toc", maxDepth: 6 }],
 			[remarkBehead, { depth: 2 }],
@@ -32,6 +35,12 @@ export default defineConfig({
 		mermaid({
 			mermaidConfig: {
 				logLevel: "error",
+				forceLegacyMathML: true,
+				layout: "elk",
+				elk: {
+					considerModelOrder: "PREFER_NODES",
+					forceNodeModelOrder: true,
+				},
 			},
 		}),
 		d2(),
@@ -52,6 +61,7 @@ export default defineConfig({
 				maxHeadingLevel: 6,
 			},
 			plugins: [starlightSidebarTopics(sidebar)],
+			customCss: ["./src/styles/custom.css"],
 			head: [
 				{
 					tag: "link",

@@ -1,0 +1,16 @@
+:root {
+	--sl-content-width: 60vw;
+}
+
+@media (max-width: 72rem) {
+	:root {
+		--sl-sidebar-width: 25vw;
+		--sl-content-width: 100vw;
+	}
+}
+
+@media (max-width: 61rem) {
+	:root {
+		--sl-sidebar-width: 15.5rem;
+	}
+}

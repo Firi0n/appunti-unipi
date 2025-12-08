@@ -5,14 +5,6 @@ sidebar:
 ---
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
 
     Pattern -- descrive --> CP["classe di
@@ -66,14 +58,6 @@ classi e oggetti"]
 ## Strategy
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
 Strategy -- definisce --> FA["Famiglia
 algoritmi
@@ -100,14 +84,6 @@ numero" --> oggetti
 ### Implementazione
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
 direction LR
     class Context{
@@ -132,14 +108,6 @@ direction LR
 ## State
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
 State -- consente --> oggetto -- alterare --> comportamento -- al cambio --> SI["stato
 interno"]
@@ -155,14 +123,6 @@ complesse"]
 ### Implementazione
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
 direction LR
     class Context{
@@ -194,14 +154,6 @@ direction LR
 ### Simple
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
 direction LR
     class ProductFactory{
@@ -224,14 +176,6 @@ direction LR
 ### Method
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
     FM["Factory
 Method"] --> Utilizzo
@@ -256,14 +200,6 @@ creare"]
 #### Implementazione
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
     Product <|-- ConcreteProduct
     class Creator{
@@ -282,13 +218,6 @@ classDiagram
 ### Abstract
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        forceNodeModelOrder: true
-    }
----
 classDiagram
     class AbstractFactory {
         CreateProductA()
@@ -326,13 +255,6 @@ classDiagram
 ## Singleton
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        forceNodeModelOrder: true
-    }
----
 graph LR
     Singleton -- garantisce --> SI["singola
 istanza"] -- di una --> classe
@@ -359,14 +281,6 @@ Lazy"]
 ## Decorator
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
 
 Decorator --> pro --> flessibilità -- rispetto --> ES["Ereditarietà
@@ -393,14 +307,6 @@ leggeri" --> component
 ### Implementazione
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
 class Component{
     +methodA()
@@ -436,14 +342,6 @@ Component <-- Decorator: component
 ## Adapter & Façade
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
 Adapter -- converte --> interfaccia -- della --> classe
 interfaccia -- in quella --> attesa -- dal --> client
@@ -454,14 +352,6 @@ Façade -- più --> Adaptee
 ### Implementazione
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
 Client --> Target: target
 class Target{
@@ -481,14 +371,6 @@ note for Adapter "adaptee.SpecificRequest()"
 ## Proxy
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 graph LR
 
 Proxy -- fornisce --> surrogato -- "per controllare
@@ -513,14 +395,6 @@ originale"]
 ### Implementazione
 
 ```mermaid
----
-config:
-    layout: elk
-    elk: {
-        considerModelOrder: "PREFER_NODES",
-        forceNodeModelOrder: true
-    }
----
 classDiagram
 class Client{
     +task()
@@ -559,10 +433,6 @@ original.doOperation()
 ### Modello dinamico
 
 ```mermaid
----
-config:
-    layout: elk
----
 sequenceDiagram
 activate Client
 Client ->> Client: "1:task()"
